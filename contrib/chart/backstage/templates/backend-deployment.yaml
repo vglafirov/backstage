@@ -87,8 +87,10 @@ metadata:
 
 spec:
   ports:
-    - port: 80
+    - name: http
+      port: 80
       targetPort: {{ .Values.backend.containerPort }}
+      protocol: TCP
 
   selector:
     app: backstage
