@@ -55,8 +55,10 @@ metadata:
 
 spec:
   ports:
-    - port: 80
+    - name: http
+      port: 80
       targetPort: {{ .Values.frontend.containerPort }}
+      protocol: TCP
 
   selector:
     app: backstage
