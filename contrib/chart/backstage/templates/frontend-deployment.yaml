@@ -36,6 +36,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "backstage.fullname" . }}-app-env
+            - secretRef:
+                name: {{ include "backstage.fullname" . }}-frontend
           volumeMounts:
             - name: app-config
               mountPath: {{ printf "/usr/share/nginx/html/static/%s" (include "backstage.appConfigFilename" .) }}
